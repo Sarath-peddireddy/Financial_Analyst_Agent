@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <i class="fas fa-chart-line header-icon"></i>
+                <h1>Financial AI Assistant</h1>
+                <p>Get AI-powered investment insights and analysis</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Simplified Input -->
+            <div class="query-section">
+                <div class="input-group">
+                    <label for="company">Company</label>
+                    <input 
+                        type="text" 
+                        id="company" 
+                        placeholder="e.g., Tesla, Apple, Google, TCS, Wipro"
+                        maxlength="50"
+                    >
+                </div>
+                <div class="input-group">
+                    <label for="question">Investment Question</label>
+                    <textarea 
+                        id="question" 
+                        placeholder="e.g., Long-term outlook and key risks?"
+                        rows="3"
+                    ></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="askBtn" class="btn btn-primary">
+                        <i class="fas fa-brain"></i>
+                        Get AI Analysis
+                    </button>
+                    <button id="reportBtn" class="btn btn-secondary">
+                        <i class="fas fa-file-pdf"></i>
+                        Download PDF Report
+                    </button>
+                </div>
+            </div>
+            <div class="query-section">
+                <div class="input-group">
+                    <label for="ticker">Stock Ticker</label>
+                    <input 
+                        type="text" 
+                        id="ticker" 
+                        placeholder="e.g., TSLA, AAPL, MSFT"
+                        maxlength="10"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="question">Investment Question</label>
+                    <textarea 
+                        id="question" 
+                        placeholder="e.g., Should I invest in this stock for long-term growth?"
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button id="askBtn" class="btn btn-primary">
+                        <i class="fas fa-brain"></i>
+                        Get AI Analysis
+                    </button>
+                    <button id="reportBtn" class="btn btn-secondary">
+                        <i class="fas fa-file-pdf"></i>
+                        Generate PDF Report
+                    </button>
+                    <button id="fetchDataBtn" class="btn btn-tertiary">
+                        <i class="fas fa-chart-line"></i>
+                        Fetch Live Data
+                    </button>
+                </div>
+            </div>
+
+            <!-- Price Chart Section -->
+            <div class="chart-section">
+                <h3><i class="fas fa-chart-area"></i> Price Chart (30 Days)</h3>
+                <canvas id="priceChart" width="400" height="200"></canvas>
+            </div>
+            <div class="results-section">
+                <div id="loadingSpinner" class="loading-spinner hidden">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Analyzing...</span>
+                </div>
+
+                <div id="answerContainer" class="answer-container hidden">
+                    <h3><i class="fas fa-lightbulb"></i> AI Analysis</h3>
+                    <div id="answerContent" class="answer-content"></div>
+                    <div id="sourcesInfo" class="sources-info"></div>
+                </div>
+
+                <div id="errorContainer" class="error-container hidden">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="errorMessage"></span>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3><i class="fas fa-history"></i> Recent Queries</h3>
+                <div id="historyContainer" class="history-container">
+                    <p class="no-history">No queries yet. Ask your first investment question!</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p><i class="fas fa-info-circle"></i> This tool provides educational information only and is not personalized financial advice.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
